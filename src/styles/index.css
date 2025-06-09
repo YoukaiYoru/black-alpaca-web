@@ -1,1 +1,26 @@
+@import url("https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro");
 @import "tailwindcss";
+
+@theme {
+  --default-font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+  --color-primary: #85ff69;
+  --color-all-black: #010101;
+  --color-new-blue: #cfffff;
+  --color-new-red: #f73928;
+}
+
+@layer base {
+  h1 {
+    font-size: var(--text-2xl);
+    font-weight: 600;
+  }
+  h2 {
+    font-size: var(--text-xl);
+    font-style: italic;
+  }
+  body {
+    font-family: var(--default-font-family);
+    background-color: var(--color-all-black);
+    color: var(--color-white);
+  }
+}

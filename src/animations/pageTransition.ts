@@ -1,28 +1,47 @@
+// src/animations/pageTransitions.ts
 import gsap from "gsap";
 
 export const animatePageIn = () => {
-  const element = document.getElementById("transition-element");
-  if (element) {
-    gsap
-      .timeline()
-      .set(element, { xPercent: 0 })
-      .to(element, { xPercent: 100, duration: 1, ease: "power2.out" });
+  const bannerOne = document.getElementById("banner-1");
+  const bannerTwo = document.getElementById("banner-2");
+  const bannerThree = document.getElementById("banner-3");
+  const bannerFour = document.getElementById("banner-4");
+
+  if (bannerOne && bannerTwo && bannerThree && bannerFour) {
+    const tl = gsap.timeline();
+
+    tl.set([bannerOne, bannerTwo, bannerThree, bannerFour], {
+      yPercent: 0,
+    }).to([bannerOne, bannerTwo, bannerThree, bannerFour], {
+      yPercent: 100,
+      stagger: 0.2,
+    });
   }
 };
 
-export const animatePageOut = (navigate: () => void) => {
-  const element = document.getElementById("transition-element");
-  if (element) {
-    gsap
-      .timeline()
-      .set(element, { xPercent: 100 })
-      .to(element, {
-        xPercent: 0,
-        duration: 1,
-        ease: "power2.in",
-        onComplete: navigate,
-      });
+export const animatePageOut = (
+  href: string,
+  navigate: (href: string) => void
+) => {
+  const bannerOne = document.getElementById("banner-1");
+  const bannerTwo = document.getElementById("banner-2");
+  const bannerThree = document.getElementById("banner-3");
+  const bannerFour = document.getElementById("banner-4");
+
+  if (bannerOne && bannerTwo && bannerThree && bannerFour) {
+    const tl = gsap.timeline();
+
+    tl.set([bannerOne, bannerTwo, bannerThree, bannerFour], {
+      yPercent: -100,
+    }).to([bannerOne, bannerTwo, bannerThree, bannerFour], {
+      yPercent: 0,
+      stagger: 0.2,
+      onComplete: () => {
+        navigate(href); // aquí es navigate(href), no router.push(href)
+      },
+    });
   } else {
-    navigate(); // fallback
+    // fallback, por si las capas no existen
+    navigate(href);
   }
 };
