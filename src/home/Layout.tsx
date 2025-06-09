@@ -32,7 +32,7 @@ const Layout = () => {
           className="min-h-screen bg-primary z-10 fixed top-0 left-3/4 w-1/4"
         />
         <NavBar />
-        <main className="pt-20 px-4">
+        <main className="pt-16">
           <Outlet />
         </main>
       </div>

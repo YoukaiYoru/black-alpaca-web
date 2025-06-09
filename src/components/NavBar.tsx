@@ -88,7 +88,7 @@ export default function NavBar() {
   );
 
   return (
-    <nav className="bg-all-black shadow-md fixed top-0 left-0 w-full mb-16">
+    <nav className="bg-all-black shadow-md fixed top-0 left-0 w-full mb-16 border-b border-white z-2">
       <div className="container mx-auto px-4 flex items-center justify-between h-16">
         <TransitionLink href="/" label="BLACK ALPACA" />
 
