@@ -18,6 +18,9 @@
     font-size: var(--text-xl);
     font-style: italic;
   }
+  p {
+    font-size: var(--text-base);
+  }
   body {
     font-family: var(--default-font-family);
     background-color: var(--color-all-black);

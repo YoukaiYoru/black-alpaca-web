@@ -88,7 +88,7 @@ export default function NavBar() {
   );
 
   return (
-    <nav className="bg-all-black shadow-md fixed top-0 left-0 w-full mb-16 border-b border-white z-2">
+    <nav className="bg-all-black shadow-md fixed top-0 left-0 w-full mb-16 border-b-2 border-white z-2">
       <div className="container mx-auto px-4 flex items-center justify-between h-16">
         <TransitionLink href="/" label="BLACK ALPACA" />
 
@@ -113,6 +113,11 @@ export default function NavBar() {
           <TransitionLink
             href="/about"
             label="About"
+            className="block py-2 px-4 text-white hover:text-primary transition duration-300"
+          />
+          <TransitionLink
+            href="/calendar"
+            label="Calendar"
             className="block py-2 px-4 text-white hover:text-primary transition duration-300"
           />
         </div>
@@ -148,6 +153,15 @@ export default function NavBar() {
           <TransitionLink
             href="/about"
             label="About"
+            className="text-3xl text-white hover:text-all-black  transition duration-300"
+            underlineColorClass="bg-all-black"
+            closeClick={(onCloseComplete) =>
+              safeCloseMenuWithAnimation(onCloseComplete)
+            }
+          />
+          <TransitionLink
+            href="/calendar"
+            label="Calendar"
             className="text-3xl text-white hover:text-all-black  transition duration-300"
             underlineColorClass="bg-all-black"
             closeClick={(onCloseComplete) =>

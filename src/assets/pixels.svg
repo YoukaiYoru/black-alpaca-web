@@ -1,0 +1,73 @@
+ <svg width="100%" height="100%" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_160_1231)">
+        <rect width="63" height="63" fill="#FFFFFF" />
+        <rect y="126" width="63" height="63" fill="#FFFFFF" />
+        <rect y="252" width="63" height="63" fill="#FFFFFF" />
+        <rect y="378" width="63" height="63" fill="#FFFFFF" />
+        <rect y="63" width="63" height="63" fill="#FFFFFF" />
+        <rect y="189" width="63" height="63" fill="#FFFFFF" />
+        <rect y="315" width="63" height="63" fill="#FFFFFF" />
+        <rect y="441" width="63" height="63" fill="#FFFFFF" />
+        <rect x="252" width="63" height="63" fill="#FFFFFF" />
+        <rect x="252" y="126" width="63" height="63" fill="#FFFFFF" />
+        <rect x="252" y="252" width="63" height="63" fill="#FFFFFF" />
+        <rect x="252" y="378" width="63" height="63" fill="#FFFFFF" />
+        <rect x="252" y="63" width="63" height="63" fill="#FFFFFF" />
+        <rect x="252" y="189" width="63" height="63" fill="#FFFFFF" />
+        <rect x="252" y="315" width="63" height="63" fill="#FFFFFF" />
+        <rect x="252" y="441" width="63" height="63" fill="#FFFFFF" />
+        <rect x="126" width="63" height="63" fill="#FFFFFF" />
+        <rect x="126" y="126" width="63" height="63" fill="#FFFFFF" />
+        <rect x="126" y="252" width="63" height="63" fill="#FFFFFF" />
+        <rect x="126" y="378" width="63" height="63" fill="#FFFFFF" />
+        <rect x="126" y="63" width="63" height="63" fill="#FFFFFF" />
+        <rect x="126" y="189" width="63" height="63" fill="#FFFFFF" />
+        <rect x="126" y="315" width="63" height="63" fill="#FFFFFF" />
+        <rect x="126" y="441" width="63" height="63" fill="#FFFFFF" />
+        <rect x="378" width="63" height="63" fill="#FFFFFF" />
+        <rect x="378" y="126" width="63" height="63" fill="#FFFFFF" />
+        <rect x="378" y="252" width="63" height="63" fill="#FFFFFF" />
+        <rect x="378" y="378" width="63" height="63" fill="#FFFFFF" />
+        <rect x="378" y="63" width="63" height="63" fill="#FFFFFF" />
+        <rect x="378" y="189" width="63" height="63" fill="#FFFFFF" />
+        <rect x="378" y="315" width="63" height="63" fill="#FFFFFF" />
+        <rect x="378" y="441" width="63" height="63" fill="#FFFFFF" />
+        <rect x="63" width="63" height="63" fill="#FFFFFF" />
+        <rect x="63" y="126" width="63" height="63" fill="#FFFFFF" />
+        <rect x="63" y="252" width="63" height="63" fill="#FFFFFF" />
+        <rect x="63" y="378" width="63" height="63" fill="#FFFFFF" />
+        <rect x="63" y="63" width="63" height="63" fill="#FFFFFF" />
+        <rect x="63" y="189" width="63" height="63" fill="#FFFFFF" />
+        <rect x="63" y="315" width="63" height="63" fill="#FFFFFF" />
+        <rect x="63" y="441" width="63" height="63" fill="#FFFFFF" />
+        <rect x="315" width="63" height="63" fill="#FFFFFF" />
+        <rect x="315" y="126" width="63" height="63" fill="#FFFFFF" />
+        <rect x="315" y="252" width="63" height="63" fill="#FFFFFF" />
+        <rect x="315" y="378" width="63" height="63" fill="#FFFFFF" />
+        <rect x="315" y="63" width="63" height="63" fill="#FFFFFF" />
+        <rect x="315" y="189" width="63" height="63" fill="#FFFFFF" />
+        <rect x="315" y="315" width="63" height="63" fill="#FFFFFF" />
+        <rect x="315" y="441" width="63" height="63" fill="#FFFFFF" />
+        <rect x="189" width="63" height="63" fill="#FFFFFF" />
+        <rect x="189" y="126" width="63" height="63" fill="#FFFFFF" />
+        <rect x="189" y="252" width="63" height="63" fill="#FFFFFF" />
+        <rect x="189" y="378" width="63" height="63" fill="#FFFFFF" />
+        <rect x="189" y="63" width="63" height="63" fill="#FFFFFF" />
+        <rect x="189" y="189" width="63" height="63" fill="#FFFFFF" />
+        <rect x="189" y="315" width="63" height="63" fill="#FFFFFF" />
+        <rect x="189" y="441" width="63" height="63" fill="#FFFFFF" />
+        <rect x="441" width="63" height="63" fill="#FFFFFF" />
+        <rect x="441" y="126" width="63" height="63" fill="#FFFFFF" />
+        <rect x="441" y="252" width="63" height="63" fill="#FFFFFF" />
+        <rect x="441" y="378" width="63" height="63" fill="#FFFFFF" />
+        <rect x="441" y="63" width="63" height="63" fill="#FFFFFF" />
+        <rect x="441" y="189" width="63" height="63" fill="#FFFFFF" />
+        <rect x="441" y="315" width="63" height="63" fill="#FFFFFF" />
+        <rect x="441" y="441" width="63" height="63" fill="#FFFFFF" />
+      </g>
+      <defs>
+        <clipPath id="clip0_160_1231">
+          <rect width="500" height="500" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>

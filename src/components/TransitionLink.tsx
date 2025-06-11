@@ -16,11 +16,10 @@ interface Props {
   closeClick?: (onCloseComplete: () => void) => void;
   underlineColorClass?: string;
 }
-
 const TransitionLink: React.FC<Props> = ({
   href,
   label,
-  className = "text-white hover:text-gray-300 transition-colors",
+  className = "text-white hover:text-gray-300 transition-colors text-sm md:text-base",
   animateOut = animatePageOut,
   closeClick,
   underlineColorClass = "bg-primary",
