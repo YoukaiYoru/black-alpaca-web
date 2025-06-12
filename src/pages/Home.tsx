@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SpeakersCard from "../components/SpeakersCard";
@@ -7,6 +7,7 @@ import { ScrambleTextPlugin } from "gsap/all";
 
 import WhiteAlpacaStand from "../components/SVG/WhiteAlpacaStand";
 import PixelSVG from "../components/SVG/PixelSVG";
+import { SiIntel } from "react-icons/si";
 
 gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin);
 
@@ -154,6 +155,134 @@ export default function Home() {
     }
   }, []);
 
+  const BrandsSection = () => {
+    const brandsRef = useRef<HTMLDivElement>(null);
+
+    // useEffect(() => {
+    //   const brands = brandsRef.current?.querySelectorAll("li");
+
+    //   if (brands) {
+    //     gsap.set(brands, {
+    //       opacity: 0,
+    //       y: 50, // Set initial position to be 50px below the normal position
+    //     });
+
+    //     gsap.to(brands, {
+    //       opacity: 1,
+    //       y: 0,
+    //       stagger: 0.3, // Add stagger to create a nice effect between each logo
+    //       duration: 1, // Set a proper duration for the effect
+    //       delay: 0.5,
+    //       scrollTrigger: {
+    //         trigger: brandsRef.current, // Use the proper ref for the brands section
+    //         start: "top 80%", // Animation triggers when the section is at 80% from the top of the viewport
+    //         end: "bottom 20%", // Animation ends when the section reaches 20% from the bottom
+    //         scrub: true, // Smooth scrolling effect
+    //         markers: false, // Set to `true` if you want to see the start/end of the ScrollTrigger
+    //       },
+    //     });
+    //   }
+    // }, []);
+
+    useEffect(() => {
+      const brands = brandsRef.current?.querySelectorAll("li");
+
+      if (brands) {
+        // Set initial state for each brand
+        gsap.set(brands, {
+          opacity: 0,
+          y: 50, // Start 50px below their final position
+          rotation: 0, // Start without rotation
+          scale: 0.5, // Start scaled down
+        });
+
+        // Animate each brand with a different animation
+        brands.forEach((brand, index) => {
+          const animationDelay = index * 0.2; // Add staggered delays for each brand
+
+          gsap.to(brand, {
+            opacity: 1,
+            y: 0, // Animate to the normal position
+            scale: 1, // Animate to normal scale
+            rotation: index % 2 === 0 ? 360 : -360, // Alternate rotation direction
+            duration: 1, // Different durations for the animations
+            delay: animationDelay, // Stagger the animations
+            scrollTrigger: {
+              trigger: brandsRef.current,
+              start: "top 50%", // Trigger animation when the section reaches 80% of the viewport
+              end: "bottom 50%", // End when the section reaches 20% from the bottom
+              scrub: true, // Smooth scrolling effect
+              markers: false, // Set to true to debug
+            },
+          });
+        });
+      }
+    }, []);
+
+    // useEffect(() => {
+    //   const brands = brandsRef.current?.querySelectorAll("li");
+
+    //   if (brands) {
+    //     // Set initial state for each brand
+    //     gsap.set(brands, {
+    //       opacity: 0,
+    //       scale: 0.5, // Start scaled down
+    //     });
+
+    //     // Animate each brand with a different animation
+    //     brands.forEach((brand, index) => {
+    //       const animationDelay = index * 0.2; // Add staggered delays for each brand
+
+    //       // Randomly assign direction (left, right, top, bottom)
+    //       const direction = ["left", "right", "top", "bottom"][index % 4];
+
+    //       let startX = 0;
+    //       let startY = 0;
+
+    //       // Set the starting position based on the direction
+    //       if (direction === "left") {
+    //         startX = -200; // Start from the left
+    //       } else if (direction === "right") {
+    //         startX = 200; // Start from the right
+    //       } else if (direction === "top") {
+    //         startY = -200; // Start from the top
+    //       } else if (direction === "bottom") {
+    //         startY = 200; // Start from the bottom
+    //       }
+
+    //       gsap.to(brand, {
+    //         opacity: 1,
+    //         scale: 1, // Animate to normal scale
+    //         x: startX, // Move in the x-direction
+    //         y: startY, // Move in the y-direction
+    //         stagger: 0.3, // Stagger each brand's animation
+    //         duration: 1.5, // Set duration for the animation
+    //         delay: animationDelay, // Stagger the animations
+    //         scrollTrigger: {
+    //           trigger: brandsRef.current,
+    //           start: "top 80%", // Animation triggers when the section is at 80% from the top of the viewport
+    //           end: "bottom 20%", // Animation ends when the section reaches 20% from the bottom
+    //           scrub: true, // Smooth scrolling effect
+    //           markers: false, // Set to true to debug
+    //         },
+    //       });
+    //     });
+    //   }
+    // }, []);
+
+    return (
+      <section ref={brandsRef}>
+        <ul className="flex justify-evenly items-center h-64">
+          <li><SiIntel className="text-8xl" /></li>
+          <li><SiIntel className="text-8xl" /></li>
+          <li><SiIntel className="text-8xl" /></li>
+          <li><SiIntel className="text-8xl" /></li>
+        </ul>
+      </section>
+    );
+  };
+
+
   return (
     <div>
       <section className="flex flex-col md:flex-row h-[calc(100vh-64px)]">
@@ -210,11 +339,10 @@ export default function Home() {
                 <div
                   key={speaker.id}
                   ref={cardRef}
-                  className={`speakers-card flex w-full ${
-                    index % 2 === 0
-                      ? "justify-center md:justify-start"
-                      : "justify-center md:justify-end"
-                  }`}
+                  className={`speakers-card flex w-full ${index % 2 === 0
+                    ? "justify-center md:justify-start"
+                    : "justify-center md:justify-end"
+                    }`}
                 >
                   <SpeakersCard
                     dateString={speaker.dateString}
@@ -234,6 +362,34 @@ export default function Home() {
       <section>
         <div className="flex flex-col items-center justify-center h-64 bg-gray-100">
           <h2 className="text-2xl text-all-black font-bold mb-4 text-center">
+            Stay Tuned!
+          </h2>
+          <p className="text-lg text-center text-all-black">More information coming soon.</p>
+        </div>
+      </section>
+
+      <section>
+        <h1
+          ref={someTitleRef}
+          className="col-span-1 bg-new-blue px-4 md:px-8 py-3 md:py-5 mt-20 w-fit h-fit text-all-black font-medium top-20 self-start z-2"
+        >
+          <span>Event sponsors</span>
+        </h1>
+        <BrandsSection />
+      </section>
+
+      {/* Here should be some design */}
+      <section>
+        <div className="flex flex-col items-center justify-center h-64 bg-gray-800">
+          <h2 className="text-2xl font-bold mb-4 text-center">
+            Stay Tuned!
+          </h2>
+          <p className="text-lg text-center">More information coming soon.</p>
+        </div>
+      </section>
+      <section>
+        <div className="flex flex-col items-center justify-center h-64 bg-gray-800">
+          <h2 className="text-2xl font-bold mb-4 text-center">
             Stay Tuned!
           </h2>
           <p className="text-lg text-center">More information coming soon.</p>
