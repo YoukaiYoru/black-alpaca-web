@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PixelSVG from "../SVG/PixelSVG";
 import WhiteAlpacaStand from "../SVG/WhiteAlpacaStand";
 import SpeakersCard from "../SpeakersCard";
+import WhiteAlpacaSit from "../SVG/WhiteAlpacaSit";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -82,17 +83,22 @@ export function SpeakersSection({ speakers }: { speakers: Speaker[] }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Columna izquierda: título y SVG */}
         <div>
-          <div className="flex items-center z-10 sticky top-">
+          <div 
+            ref={title}
+            className="flex items-center z-10 sticky top-20">
             <h1
               ref={title}
-              className="bg-primary px-4 md:px-8 py-3 md:py-5 mt-20 w-fit text-all-black font-medium top-20"
+              className="bg-primary px-4 md:px-8 py-3 md:py-5 w-fit text-all-black font-medium "
             >
               Some Speakers
             </h1>
-            <WhiteAlpacaStand className="w-12 h-12 mt-20 ml-4" />
+            {/* Vista móvil */}
+            <WhiteAlpacaSit className="w-18 h-18 ml-4 block md:hidden"/>
           </div>
+
+          {/* Vista escritorio */}
           {/* SVG Animado */}
-          <div className="sticky top-40 flex justify-center items-center z-0">
+          <div className="sticky top-40 justify-center items-center z-0 hidden md:flex">
             <div className="relative w-full max-w-[90vw] h-full flex justify-center items-center overflow-hidden">
               <PixelSVG
                 ref={svg}
@@ -104,7 +110,11 @@ export function SpeakersSection({ speakers }: { speakers: Speaker[] }) {
         </div>
 
         {/* Columna derecha: tarjetas */}
-        <aside className="grid grid-cols-1 gap-4 p-5 justify-center">
+        <aside className="grid grid-cols-1 gap-4 
+                          px-10 md:p-10 
+                          max-w-md md:max-w-full md:mr-10
+                          mx-auto md:mx-auto
+                          justify-center">
           {speakers.map((s, i) => (
             <div
               key={s.id}
