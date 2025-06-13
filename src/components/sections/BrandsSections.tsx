@@ -20,20 +20,21 @@ export function BrandsSection() {
         stagger: 0.3,
         scrollTrigger: {
           trigger: container.current,
-          start: `top ${window.innerHeight - 50}px`,
-          end: `bottom ${window.innerHeight}px`,
+          start: `top 60%`,
+          end: `bottom 70%`,
           scrub: true,
-          markers: false,
+          markers: true,
         },
       });
 
       const title = container.current?.querySelector("h1");
       if (!title) return;
-      gsap.set(title, { x: -50, opacity: 0 });
+      gsap.set(title, { x: -100, opacity: 0 });
       gsap.to(title, {
         x: 0,
         opacity: 1,
-        duration: 1,
+        duration: 4,
+        ease: "power3.out",
         scrollTrigger: {
           trigger: container.current,
           start: `top ${window.innerHeight - 100}px`,

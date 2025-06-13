@@ -1,6 +1,7 @@
 import { HeroBlocks } from "../components/sections/HeroSections";
 import { SpeakersSection } from "../components/sections/SpeakersSections";
 import { BrandsSection } from "../components/sections/BrandsSections";
+import InfoSection from "../components/sections/InfoSection";
 
 export default function Home() {
   const speakersData = [
@@ -64,6 +65,7 @@ export default function Home() {
 
       {/* Sección marcas */}
       <BrandsSection />
+      <InfoSection />
     </div>
   );
 }
