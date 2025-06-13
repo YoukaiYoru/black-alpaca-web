@@ -7,16 +7,18 @@ import {
   animateUnderlineIn,
   animateUnderlineOut,
 } from "../animations/underlineAnimation";
-
+import LogoVariant from "./SVG/LogoVariant"; // Assuming this is the SVG component you want to use
 interface Props {
+  svg?: boolean;
   href: string;
-  label: string;
+  label?: string;
   className?: string;
   animateOut?: (href: string, navigate: (path: string) => void) => void;
   closeClick?: (onCloseComplete: () => void) => void;
   underlineColorClass?: string;
 }
 const TransitionLink: React.FC<Props> = ({
+  svg = false,
   href,
   label,
   className = "text-white hover:text-gray-300 transition-colors text-sm md:text-base",
@@ -70,13 +72,24 @@ const TransitionLink: React.FC<Props> = ({
       to={href}
       onClick={handleClick}
       ref={linkRef}
-      className={`relative inline-block cursor-pointer ${className}`}
+      className={`relative inline-flex items-center cursor-pointer ${className}`}
     >
-      {label}
+      {svg && (
+        <LogoVariant className="inline-block align-text-bottom w-32 h-12" />
+      )}
+      {/* Etiqueta de texto siempre visible */}
+      {!svg && <span className="inline-block align-text-bottom">{label}</span>}
+      {/* Línea de subrayado oculta inicialmente */}
       <span
         ref={underlineRef}
-        className={`absolute left-0 bottom-0 h-[2px] w-full origin-left scale-x-0 opacity-0 pointer-events-none ${underlineColorClass}`}
-      ></span>
+        className={`
+          absolute left-0 bottom-0
+          h-[2px] w-full
+          origin-left scale-x-0 opacity-0
+          pointer-events-none
+          ${underlineColorClass}
+        `}
+      />
     </Link>
   );
 };

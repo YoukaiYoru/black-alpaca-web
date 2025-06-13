@@ -1,88 +1,80 @@
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { useRef, useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import TransitionLink from "./TransitionLink";
-
-gsap.registerPlugin(useGSAP);
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const backdropRef = useRef<HTMLDivElement>(null);
   const menuLinksRef = useRef<HTMLDivElement>(null);
+  let openTl: GSAPTimeline | null = null;
 
-  const closeMenu = () => setIsMenuOpen(false);
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
-  // Method to close the menu with a full smooth animation
   const safeCloseMenuWithAnimation = (onCloseComplete?: () => void) => {
-    if (menuRef.current && backdropRef.current && menuLinksRef.current) {
-      const links = menuLinksRef.current.children;
-
-      const tl = gsap.timeline({
-        defaults: { ease: "power3.inOut" },
-        onComplete: () => {
-          // Close menu state after all animations
-          closeMenu();
-          if (onCloseComplete) onCloseComplete();
-        },
-      });
-
-      tl.to(links, {
-        y: 30,
-        opacity: 0,
-        scale: 0.95,
-        stagger: { each: 0.05, from: "end" },
-        duration: 0.3,
-      })
-        .to(menuRef.current, { x: "100%", opacity: 0, duration: 0.5 }, "-=0.2")
-        .to(
-          backdropRef.current,
-          {
-            opacity: 0,
-            duration: 0.3,
-            onComplete: () => {
-              if (backdropRef.current)
-                backdropRef.current.style.display = "none";
-            },
-          },
-          "-=0.3"
-        );
-    } else {
-      closeMenu();
-      if (onCloseComplete) onCloseComplete();
+    if (!menuRef.current || !backdropRef.current || !menuLinksRef.current) {
+      setIsMenuOpen(false);
+      onCloseComplete?.();
+      return;
     }
+
+    const links = Array.from(menuLinksRef.current.children);
+    gsap.killTweensOf([menuRef.current, backdropRef.current, links]);
+
+    const tl = gsap.timeline({
+      defaults: { ease: "power3.inOut" },
+      onComplete: () => {
+        setIsMenuOpen(false);
+        onCloseComplete?.();
+        backdropRef.current!.style.display = "none";
+      },
+    });
+
+    tl.to(links, {
+      y: 30,
+      opacity: 0,
+      scale: 0.95,
+      stagger: { each: 0.05, from: "start" },
+      duration: 0.25,
+    })
+      .to(menuRef.current, { x: "100%", opacity: 0, duration: 0.3 }, "-=0.2")
+      .to(backdropRef.current, { opacity: 0, duration: 0.2 }, "-=0.3");
   };
 
   useGSAP(
     () => {
-      if (menuRef.current && backdropRef.current && menuLinksRef.current) {
-        const links = menuLinksRef.current.children;
-        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      if (
+        !isMenuOpen ||
+        !menuRef.current ||
+        !backdropRef.current ||
+        !menuLinksRef.current
+      )
+        return;
 
-        if (isMenuOpen) {
-          // Opening animation
-          gsap.set(links, { y: 30, opacity: 0, scale: 0.95 });
+      const links = Array.from(menuLinksRef.current.children);
+      gsap.set(backdropRef.current, { display: "block", opacity: 0 });
+      gsap.set(menuRef.current, { x: "100%", opacity: 0 });
+      gsap.set(links, { y: 30, opacity: 0, scale: 0.95 });
 
-          tl.set(backdropRef.current, { display: "block", opacity: 0 })
-            .to(backdropRef.current, { opacity: 0.5, duration: 0.3 }, 0)
-            .set(menuRef.current, { x: "100%", opacity: 0 })
-            .to(menuRef.current, { x: "0%", opacity: 1, duration: 0.5 }, 0)
-            .to(
-              links,
-              {
-                y: 0,
-                opacity: 1,
-                scale: 1,
-                stagger: 0.1,
-                duration: 0.5,
-              },
-              "-=0.3"
-            );
-        }
-        // Closing is fully handled in safeCloseMenuWithAnimation
-      }
+      if (openTl) openTl.kill();
+
+      openTl = gsap
+        .timeline({ defaults: { ease: "power3.out" } })
+        .to(backdropRef.current, { opacity: 0, duration: 0.2 }, 0)
+        .to(menuRef.current, { x: "0%", opacity: 1, duration: 0.5 }, 0)
+        .to(
+          links,
+          {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            stagger: { each: 0.08, from: "end", ease: "power2.out" },
+            duration: 0.2,
+          },
+          "-=0.3"
+        );
     },
     { dependencies: [isMenuOpen] }
   );
@@ -90,18 +82,14 @@ export default function NavBar() {
   return (
     <nav className="bg-all-black shadow-md fixed top-0 left-0 w-full mb-16 border-b-2 border-white z-2">
       <div className="container mx-auto px-4 flex items-center justify-between h-16">
-        <TransitionLink href="/" label="BLACK ALPACA" />
+        <TransitionLink href="/" svg={true} />
 
         <button
           className="lg:hidden text-white focus:outline-none"
           aria-label="Toggle navigation menu"
           onClick={toggleMenu}
         >
-          {isMenuOpen ? (
-            <FaTimes className="w-6 h-6" aria-hidden="true" />
-          ) : (
-            <FaBars className="w-6 h-6" aria-hidden="true" />
-          )}
+          <FaBars className="w-6 h-6" aria-hidden="true" />
         </button>
 
         <div className="hidden lg:flex lg:items-center lg:space-x-6">

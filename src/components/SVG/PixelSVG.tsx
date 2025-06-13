@@ -25,6 +25,7 @@ export default function PixelSVG({ ref, ...props }: Props) {
               width="25"
               height="25"
               fill="#000000"
+              className="m-0"
             />
           ))
         )}
