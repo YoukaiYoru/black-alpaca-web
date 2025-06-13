@@ -82,12 +82,15 @@ export function SpeakersSection({ speakers }: { speakers: Speaker[] }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Columna izquierda: título y SVG */}
         <div>
-          <h1
-            ref={title}
-            className="bg-primary px-4 md:px-8 py-3 md:py-5 mt-20 w-fit text-all-black font-medium sticky top-20 z-10"
-          >
-            Some Speakers
-          </h1>
+          <div className="flex items-center z-10 sticky top-">
+            <h1
+              ref={title}
+              className="bg-primary px-4 md:px-8 py-3 md:py-5 mt-20 w-fit text-all-black font-medium top-20"
+            >
+              Some Speakers
+            </h1>
+            <WhiteAlpacaStand className="w-12 h-12 mt-20 ml-4" />
+          </div>
           {/* SVG Animado */}
           <div className="sticky top-40 flex justify-center items-center z-0">
             <div className="relative w-full max-w-[90vw] h-full flex justify-center items-center overflow-hidden">

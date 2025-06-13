@@ -45,9 +45,11 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Sección hero responsive */}
-      <section className="flex flex-col md:flex-row h-auto md:h-[calc(100vh-64px)]">
+      {/* <section className="flex flex-col md:flex-row h-auto md:h-[calc(100vh-64px)] min-w-fit"> */}
+      <section className="flex flex-col md:flex-row h-auto md:h-[calc(100vh-64px)] w-[100vw]">
         {/* Bloque 1 */}
-        <div className="flex-1 flex items-center justify-center bg-black py-12 md:py-0">
+        {/* <div className="flex-1 flex items-center justify-center bg-black py-12 md:py-0"> */}
+        <div className="flex-1 flex items-center justify-center bg-black p-6 md:p-0">
           <HeroBlocks />
         </div>
 
