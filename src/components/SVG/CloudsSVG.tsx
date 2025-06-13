@@ -1,4 +1,4 @@
-const CloudsSVG = (props: React.SVGProps<SVGSVGElement>) => (
+const CloudSVG = (props: React.SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={96} height={56} {...props}>
     <path fill="#FFF" d="M16 24h64v16H16z" />
     <path
@@ -7,4 +7,4 @@ const CloudsSVG = (props: React.SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-export default CloudsSVG;
+export default CloudSVG;

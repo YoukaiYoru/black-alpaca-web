@@ -78,40 +78,42 @@ export function SpeakersSection({ speakers }: { speakers: Speaker[] }) {
   );
 
   return (
-    <section ref={section} className="top-20 h-full">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 z-2">
+    <section ref={section} className="pt-20 h-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Columna izquierda: título y SVG */}
         <div>
           <h1
             ref={title}
-            className="col-span-1 bg-primary px-4 md:px-8 py-3 md:py-5 mt-20 w-fit h-fit text-all-black font-medium sticky top-20 self-start z-1"
+            className="bg-primary px-4 md:px-8 py-3 md:py-5 mt-20 w-fit text-all-black font-medium sticky top-20 z-10"
           >
-            <span>Some Speakers</span>
+            Some Speakers
           </h1>
-          <div className="sticky top-40 z-0 flex justify-center items-center">
+          {/* SVG Animado */}
+          <div className="sticky top-40 flex justify-center items-center z-0">
             <div className="relative w-full max-w-[90vw] h-full flex justify-center items-center overflow-hidden">
               <PixelSVG
                 ref={svg}
-                className="top-0 left-0 z-2 w-fit h-fit absolute"
+                className="absolute top-0 left-0 w-auto h-auto z-2"
               />
-              <WhiteAlpacaStand className="w-full h-full max-w-5/6" />
+              <WhiteAlpacaStand className="w-full h-full max-w-[90%]" />
             </div>
           </div>
         </div>
-        <aside className="col-span-1 grid grid-cols-1 gap-4 m-5 mb-5">
-          <div className="space-y-5 mb-16">
-            {speakers.map((s, i) => (
-              <div
-                key={s.id}
-                className={`speakers-card flex w-full ${
-                  i % 2 === 0
-                    ? "justify-center md:justify-start"
-                    : "justify-center md:justify-end"
-                }`}
-              >
-                <SpeakersCard {...s} />
-              </div>
-            ))}
-          </div>
+
+        {/* Columna derecha: tarjetas */}
+        <aside className="grid grid-cols-1 gap-4 p-5">
+          {speakers.map((s, i) => (
+            <div
+              key={s.id}
+              className={`
+                speakers-card flex w-full
+                justify-center 
+                md:${i % 2 === 0 ? "justify-start" : "justify-end"}
+              `}
+            >
+              <SpeakersCard {...s} />
+            </div>
+          ))}
         </aside>
       </div>
     </section>

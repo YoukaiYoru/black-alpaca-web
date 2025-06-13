@@ -43,15 +43,24 @@ export default function Home() {
   ];
 
   return (
-    <div>
-      <section className="flex flex-col md:flex-row h-[calc(100vh-64px)]">
-        <div className="flex-1 h-full flex items-center justify-center bg-black">
+    <div className="flex flex-col">
+      {/* Sección hero responsive */}
+      <section className="flex flex-col md:flex-row h-auto md:h-[calc(100vh-64px)]">
+        {/* Bloque 1 */}
+        <div className="flex-1 flex items-center justify-center bg-black py-12 md:py-0">
           <HeroBlocks />
         </div>
-        <div className="flex-1 h-full flex items-center justify-center bg-white" />
+
+        {/* Bloque 2 */}
+        <div className="flex-1 flex items-center justify-center bg-white py-12 md:py-0">
+          {/* Puedes agregar contenido aquí o dejarlo vacío */}
+        </div>
       </section>
 
+      {/* Sección speakers */}
       <SpeakersSection speakers={speakersData} />
+
+      {/* Sección marcas */}
       <BrandsSection />
     </div>
   );

@@ -26,12 +26,28 @@ export function BrandsSection() {
           markers: false,
         },
       });
+
+      const title = container.current?.querySelector("h1");
+      if (!title) return;
+      gsap.set(title, { x: -50, opacity: 0 });
+      gsap.to(title, {
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        scrollTrigger: {
+          trigger: container.current,
+          start: `top ${window.innerHeight - 100}px`,
+          end: `bottom ${window.innerHeight}px`,
+          scrub: true,
+          markers: false,
+        },
+      });
     },
     { scope: container }
   );
 
   return (
-    <section ref={container}>
+    <section ref={container} className="h-full">
       <h1 className="col-span-1 bg-new-blue px-4 md:px-8 py-3 md:py-5 mt-20 w-fit h-fit text-all-black font-medium top-20 self-start z-2">
         <span>Event sponsors</span>
       </h1>

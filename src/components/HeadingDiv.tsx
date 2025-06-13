@@ -1,4 +1,3 @@
-// HeadingDiv.tsx
 "use client";
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
@@ -50,7 +49,7 @@ export function HeadingDiv<T extends HTMLElement>({
               return `${elementBottom - offsetEnd}`;
             },
             scrub: true,
-            markers: true,
+            markers: false, // quitar para producción
             toggleActions: "play none reverse none",
           },
         })
@@ -64,9 +63,19 @@ export function HeadingDiv<T extends HTMLElement>({
   return (
     <h1
       ref={titleRef}
-      className={`col-span-1 ${bgColor} px-4 md:px-8 py-3 md:py-5 mt-20 w-fit h-fit text-all-black font-medium sticky top-20 self-start z-1`}
+      className={`
+        ${bgColor} 
+        px-4 py-2 
+        sm:px-6 sm:py-3 
+        md:px-8 md:py-5 
+        mt-16 sm:mt-20 
+        inline-block 
+        text-black font-medium 
+        sticky top-16 sm:top-20 
+        z-10
+      `}
     >
-      <span>{title}</span>
+      {title}
     </h1>
   );
 }

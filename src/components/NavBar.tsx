@@ -19,10 +19,8 @@ export default function NavBar() {
       onCloseComplete?.();
       return;
     }
-
     const links = Array.from(menuLinksRef.current.children);
     gsap.killTweensOf([menuRef.current, backdropRef.current, links]);
-
     const tl = gsap.timeline({
       defaults: { ease: "power3.inOut" },
       onComplete: () => {
@@ -31,7 +29,6 @@ export default function NavBar() {
         backdropRef.current!.style.display = "none";
       },
     });
-
     tl.to(links, {
       y: 30,
       opacity: 0,
@@ -62,7 +59,7 @@ export default function NavBar() {
 
       openTl = gsap
         .timeline({ defaults: { ease: "power3.out" } })
-        .to(backdropRef.current, { opacity: 0, duration: 0.2 }, 0)
+        .to(backdropRef.current, { opacity: 0.5, duration: 0.2 }, 0)
         .to(menuRef.current, { x: "0%", opacity: 1, duration: 0.5 }, 0)
         .to(
           links,
@@ -80,9 +77,9 @@ export default function NavBar() {
   );
 
   return (
-    <nav className="bg-all-black shadow-md fixed top-0 left-0 w-full mb-16 border-b-2 border-white z-2">
+    <nav className="bg-all-black shadow-md fixed top-0 left-0 w-full border-b-2 border-white z-9">
       <div className="container mx-auto px-4 flex items-center justify-between h-16">
-        <TransitionLink href="/" svg={true} />
+        <TransitionLink href="/" svg />
 
         <button
           className="lg:hidden text-white focus:outline-none"
@@ -93,21 +90,18 @@ export default function NavBar() {
         </button>
 
         <div className="hidden lg:flex lg:items-center lg:space-x-6">
-          <TransitionLink
-            href="/"
-            label="Home"
-            className="block py-2 px-4 text-white hover:text-primary transition duration-300"
-          />
-          <TransitionLink
-            href="/about"
-            label="About"
-            className="block py-2 px-4 text-white hover:text-primary transition duration-300"
-          />
-          <TransitionLink
-            href="/calendar"
-            label="Calendar"
-            className="block py-2 px-4 text-white hover:text-primary transition duration-300"
-          />
+          {["/", "/about", "/calendar"].map((href, i) => (
+            <TransitionLink
+              key={i}
+              href={href}
+              label={
+                href === "/"
+                  ? "Home"
+                  : href.slice(1).replace(/^\w/, (c) => c.toUpperCase())
+              }
+              className="block py-2 px-4 text-white hover:text-primary transition duration-300"
+            />
+          ))}
         </div>
       </div>
 
@@ -117,9 +111,9 @@ export default function NavBar() {
         className="fixed inset-0 bg-black opacity-0 hidden lg:hidden"
         style={{ zIndex: 40 }}
         onClick={() => safeCloseMenuWithAnimation()}
-      ></div>
+      />
 
-      {/* Full-screen mobile menu */}
+      {/* Mobile Menu */}
       <div
         ref={menuRef}
         className="fixed top-0 right-0 w-4/5 max-w-sm h-full bg-new-red shadow-lg transform translate-x-full opacity-0 lg:hidden"
@@ -129,33 +123,22 @@ export default function NavBar() {
           ref={menuLinksRef}
           className="flex flex-col items-center justify-center h-full space-y-8 px-6"
         >
-          <TransitionLink
-            href="/"
-            label="Home"
-            className="text-3xl text-white hover:text-all-black  transition duration-300"
-            underlineColorClass="bg-all-black"
-            closeClick={(onCloseComplete) =>
-              safeCloseMenuWithAnimation(onCloseComplete)
-            }
-          />
-          <TransitionLink
-            href="/about"
-            label="About"
-            className="text-3xl text-white hover:text-all-black  transition duration-300"
-            underlineColorClass="bg-all-black"
-            closeClick={(onCloseComplete) =>
-              safeCloseMenuWithAnimation(onCloseComplete)
-            }
-          />
-          <TransitionLink
-            href="/calendar"
-            label="Calendar"
-            className="text-3xl text-white hover:text-all-black  transition duration-300"
-            underlineColorClass="bg-all-black"
-            closeClick={(onCloseComplete) =>
-              safeCloseMenuWithAnimation(onCloseComplete)
-            }
-          />
+          {["/", "/about", "/calendar"].map((href, i) => (
+            <TransitionLink
+              key={i}
+              href={href}
+              label={
+                href === "/"
+                  ? "Home"
+                  : href.slice(1).replace(/^\w/, (c) => c.toUpperCase())
+              }
+              className="text-3xl text-white hover:text-all-black transition duration-300"
+              underlineColorClass="bg-all-black"
+              closeClick={(onCloseComplete) =>
+                safeCloseMenuWithAnimation(onCloseComplete)
+              }
+            />
+          ))}
         </div>
       </div>
     </nav>
