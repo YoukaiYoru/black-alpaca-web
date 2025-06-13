@@ -101,14 +101,14 @@ export function SpeakersSection({ speakers }: { speakers: Speaker[] }) {
         </div>
 
         {/* Columna derecha: tarjetas */}
-        <aside className="grid grid-cols-1 gap-4 p-5">
+        <aside className="grid grid-cols-1 gap-4 p-5 justify-center">
           {speakers.map((s, i) => (
             <div
               key={s.id}
-              className={`
-                speakers-card flex w-full
-                justify-center 
-                md:${i % 2 === 0 ? "justify-start" : "justify-end"}
+              className={`  
+              speakers-card flex w-full
+              ${i % 2 === 0 ? "md:justify-start" : "md:justify-end"}
+              justify-center
               `}
             >
               <SpeakersCard {...s} />
