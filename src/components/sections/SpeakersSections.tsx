@@ -83,9 +83,7 @@ export function SpeakersSection({ speakers }: { speakers: Speaker[] }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Columna izquierda: título y SVG */}
         <div>
-          <div 
-            ref={title}
-            className="flex items-center z-10 sticky top-20">
+          <div ref={title} className="flex items-center z-9 sticky top-20">
             <h1
               ref={title}
               className="bg-primary px-4 md:px-8 py-3 md:py-5 w-fit text-all-black font-medium "
@@ -93,7 +91,7 @@ export function SpeakersSection({ speakers }: { speakers: Speaker[] }) {
               Some Speakers
             </h1>
             {/* Vista móvil */}
-            <WhiteAlpacaSit className="w-18 h-18 ml-4 block md:hidden"/>
+            <WhiteAlpacaSit className="w-18 h-18 ml-4 block md:hidden" />
           </div>
 
           {/* Vista escritorio */}
@@ -110,11 +108,13 @@ export function SpeakersSection({ speakers }: { speakers: Speaker[] }) {
         </div>
 
         {/* Columna derecha: tarjetas */}
-        <aside className="grid grid-cols-1 gap-4 
+        <aside
+          className="grid grid-cols-1 gap-4 
                           px-10 md:p-10 
                           max-w-md md:max-w-full md:mr-10
                           mx-auto md:mx-auto
-                          justify-center">
+                          justify-center"
+        >
           {speakers.map((s, i) => (
             <div
               key={s.id}

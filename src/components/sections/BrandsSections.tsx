@@ -23,7 +23,7 @@ export function BrandsSection() {
           start: `top 60%`,
           end: `bottom 70%`,
           scrub: true,
-          markers: true,
+          markers: false,
         },
       });
 

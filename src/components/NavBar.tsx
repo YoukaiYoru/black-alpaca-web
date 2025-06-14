@@ -77,7 +77,7 @@ export default function NavBar() {
   );
 
   return (
-    <nav className="bg-all-black shadow-md fixed top-0 left-0 w-full border-b-2 border-white z-9">
+    <nav className="bg-all-black shadow-md fixed top-0 left-0 w-full border-b-2 border-white z-10">
       <div className="container mx-auto px-4 flex items-center justify-between h-16">
         <TransitionLink href="/" svg />
 
