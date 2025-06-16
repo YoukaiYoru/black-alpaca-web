@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const useScrollTrigger = (
+const useInfoScrollTrigger = (
   containerRef: React.RefObject<HTMLDivElement | null>
 ) => {
   useEffect(() => {
@@ -25,6 +25,7 @@ const useScrollTrigger = (
               markers: false,
               onEnter: () => gsap.to(cloud, { opacity: 1, duration: 0.5 }),
             },
+            stagger: 0.5,
           }
         );
       });
@@ -32,4 +33,4 @@ const useScrollTrigger = (
   }, [containerRef]);
 };
 
-export default useScrollTrigger;
+export default useInfoScrollTrigger;

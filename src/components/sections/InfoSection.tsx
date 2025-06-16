@@ -4,18 +4,20 @@ import CloudSVG from "../SVG/CloudSVG";
 import BlockComponent from "../BlockComponent";
 import useCursorPosition from "../../hooks/useCursorPositionAlpaca";
 import useModalStates from "../../hooks/useModalStates";
-import useScrollTrigger from "../../hooks/useInfoScrollTrigger";
+import useInfoScrollTrigger from "../../hooks/useInfoScrollTrigger";
 import { gsap } from "gsap";
+import useBlockAnimation from "../../hooks/useBlockAnimation";
 
 const InfoSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const alpacaRef = useRef<SVGSVGElement>(null);
-
+  const blockContainerRef = useRef<HTMLDivElement>(null);
   const { modalStates, setModalOpen } = useModalStates();
   const cursorX = useCursorPosition(containerRef, modalStates);
 
-  useScrollTrigger(containerRef);
+  useInfoScrollTrigger(containerRef);
+  useBlockAnimation(blockContainerRef);
 
   const handleAlpacaClick = () => {
     const allModalsClosed = Object.values(modalStates).every(
@@ -72,8 +74,13 @@ const InfoSection = () => {
           />
         </div>
 
-        <div className="flex items-center justify-center h-screen space-x-40">
+        <div
+          id="blocks"
+          className="flex items-center justify-center h-screen space-x-40 "
+          ref={blockContainerRef}
+        >
           <BlockComponent
+            className="block"
             title="Become a Sponsor"
             modalOpen={modalStates["Become a Sponsor"] || false}
             setModalOpen={(isOpen) =>
@@ -81,6 +88,7 @@ const InfoSection = () => {
             }
           />
           <BlockComponent
+            className="block"
             title="Submit a Talk"
             modalOpen={modalStates["Submit a Talk"] || false}
             setModalOpen={(isOpen) =>
@@ -88,6 +96,7 @@ const InfoSection = () => {
             }
           />
           <BlockComponent
+            className="block"
             title="Submit Villages"
             modalOpen={modalStates["Submit Villages"] || false}
             setModalOpen={(isOpen) =>
@@ -95,6 +104,7 @@ const InfoSection = () => {
             }
           />
           <BlockComponent
+            className="block"
             title="Become a Volunteer"
             modalOpen={modalStates["Become a Volunteer"] || false}
             setModalOpen={(isOpen) =>
@@ -102,6 +112,7 @@ const InfoSection = () => {
             }
           />
           <BlockComponent
+            className="block"
             title="Get Tickets"
             modalOpen={modalStates["Get Tickets"] || false}
             setModalOpen={(isOpen) =>
