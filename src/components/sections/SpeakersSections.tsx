@@ -110,10 +110,10 @@ export function SpeakersSection({ speakers }: { speakers: Speaker[] }) {
         {/* Columna derecha: tarjetas */}
         <aside
           className="grid grid-cols-1 gap-4 
-                          px-10 md:p-10 
-                          max-w-md md:max-w-full md:mr-10
-                          mx-auto md:mx-auto
-                          justify-center"
+              md:p-10 
+              w-full md:max-w-full md:mr-10
+              mx-auto md:mx-auto
+              justify-center"
         >
           {speakers.map((s, i) => (
             <div

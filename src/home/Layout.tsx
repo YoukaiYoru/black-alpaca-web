@@ -19,7 +19,7 @@ const Layout = () => {
           key={id}
           id={id}
           className={`
-        min-h-screen bg-primary z-10 fixed top-0 left-0
+        min-h-screen bg-primary z-11 fixed top-0 left-0
         w-full sm:w-1/2 md:w-1/4
         ${idx === 1 ? "sm:left-1/2 md:left-1/4" : ""}
         ${idx === 2 ? "sm:left-0 md:left-2/4" : ""}

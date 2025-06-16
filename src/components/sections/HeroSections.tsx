@@ -30,12 +30,9 @@ export function HeroBlocks() {
       ref={container}
       className="flex flex-col transform scale-100 md:scale-100 lg:scale-100"
     >
-      <div
-        className="block-anim bg-new-blue p-4 overflow-hidden whitespace-nowrap w-full max-w-md mr-10 relative"
-        style={{ width: "400px", height: "100px" }} // Fijo y grande
-      >
+      <div className="block-anim bg-new-blue p-4 overflow-hidden whitespace-nowrap  mr-10">
         {/* SVG en background */}
-        <div className="absolute inset-0 flex justify-center items-center">
+        <div className="">
           <TitleLogo style={{ width: "100%", height: "100%" }} />
         </div>
       </div>
