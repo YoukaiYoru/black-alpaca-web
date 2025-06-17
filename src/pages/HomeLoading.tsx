@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       {/* Sección hero responsive */}
-      <section className="flex flex-col items-center justify-center h-[calc(100vh-64px)] bg-black md:flex-row">
+      <section className="flex flex-col items-center justify-center h-[calc(100dvh-64px)] bg-black md:flex-row">
         {/* Bloque 1 */}
         <div className="flex-1 flex justify-center">
           <HeroBlocks />
