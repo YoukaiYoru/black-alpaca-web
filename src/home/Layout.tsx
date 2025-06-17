@@ -1,25 +1,42 @@
+import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
+import { animatePageIn } from "../animations/pageTransition";
+import { useLocation } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
-import RandomPixelLoader from "../components/PixelLoader";
-import { useState } from "react";
+const Layout = () => {
+  const location = useLocation();
 
-export default function Layout() {
-  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    animatePageIn();
+  }, [location.pathname]);
 
   return (
-    <>
-      {loading && (
-        <RandomPixelLoader
-          cols={4}
-          rows={3}
-          onComplete={() => setLoading(false)}
+    <div>
+      {/* Banners with responsive design */}
+      {["banner-1", "banner-2", "banner-3", "banner-4"].map((id, idx) => (
+        <div
+          key={id}
+          id={id}
+          className={`
+            min-h-screen bg-primary z-11 fixed top-0 left-0
+            w-full 
+            sm:w-1/2 md:w-1/4
+            ${idx === 1 ? "sm:left-1/2 md:left-1/4" : ""}
+            ${idx === 2 ? "sm:left-0 md:left-2/4" : ""}
+            ${idx === 3 ? "sm:left-1/2 md:left-3/4" : ""}
+          `}
         />
-      )}
-      <div className={loading ? "hidden" : "flex flex-col min-h-screen"}>
-        <main className="flex-grow">
-          <Outlet />
-        </main>
-      </div>
-    </>
+      ))}
+
+      {/* NavBar */}
+      <NavBar />
+      {/* Main Content */}
+      <main className="pt-16">
+        <Outlet />
+      </main>
+    </div>
   );
-}
+};
+
+export default Layout;
