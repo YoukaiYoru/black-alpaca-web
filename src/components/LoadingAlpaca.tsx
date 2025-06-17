@@ -74,8 +74,8 @@ export default function LoadingAlpaca() {
         <p className="text-2xl md:text-5xl" ref={LoadingText}>
           próximamente...
         </p>
-        <p className="text-xs md:text-sm">
-          Please wait while we load the content.
+        <p className="mt-5 text-xs md:text-sm">
+          Por favor, espera mientras cargamos el contenido.
         </p>
       </div>
     </div>
