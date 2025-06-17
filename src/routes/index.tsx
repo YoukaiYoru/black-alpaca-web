@@ -4,6 +4,7 @@ import Layout from "../home/Layout";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Calendar from "../pages/Calendar";
+import HomeLoading from "../pages/HomeLoading";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/about", element: <About /> },
       { path: "/calendar", element: <Calendar /> },
+      { path: "/loading", element: <HomeLoading /> },
     ],
   },
 ]);

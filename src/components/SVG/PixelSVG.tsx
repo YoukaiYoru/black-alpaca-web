@@ -2,9 +2,10 @@ import React from "react";
 
 type Props = {
   ref?: React.RefObject<SVGSVGElement | null>;
+  length?: number;
 } & React.SVGProps<SVGSVGElement>;
 
-export default function PixelSVG({ ref, ...props }: Props) {
+export default function PixelSVG({ length = 12, ref, ...props }: Props) {
   return (
     <svg
       ref={ref}
@@ -16,8 +17,8 @@ export default function PixelSVG({ ref, ...props }: Props) {
       {...props}
     >
       <g clipPath="url(#clip0_160_1231)">
-        {Array.from({ length: 12 }).map((_, row) =>
-          Array.from({ length: 12 }).map((_, col) => (
+        {Array.from({ length }).map((_, row) =>
+          Array.from({ length }).map((_, col) => (
             <rect
               key={`${row}-${col}`}
               x={col * 25}

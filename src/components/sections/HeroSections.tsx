@@ -20,6 +20,7 @@ export function HeroBlocks() {
         stagger: 0.2,
         duration: 1,
         ease: "power3.out",
+        delay: 2,
       });
     },
     { scope: container }
@@ -28,7 +29,7 @@ export function HeroBlocks() {
   return (
     <div
       ref={container}
-      className="flex flex-col transform scale-100 md:scale-100 lg:scale-100"
+      className="flex flex-col justify-center transform scale-100 md:scale-100 lg:scale-100"
     >
       <div className="block-anim bg-new-blue p-4 overflow-hidden whitespace-nowrap  mr-10">
         {/* SVG en background */}
