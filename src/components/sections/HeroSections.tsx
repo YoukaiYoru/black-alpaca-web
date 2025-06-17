@@ -40,7 +40,7 @@ export function HeroBlocks() {
 
       <div className="block-anim bg-new-red px-4 py-2 flex flex-col ml-10">
         <h2 className="text-white text-lg md:text-3xl leading-none mb-1 text-center md:text-left">
-          18-20.11.2025
+          XX-XX.11.2025
         </h2>
         <p className="text-white text-xs md:text-base leading-tight text-center md:text-left">
           Coming Soon
