@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import { animatePageIn } from "../animations/pageTransition";
 import { useLocation } from "react-router-dom";
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 
 const Layout = () => {
   const location = useLocation();
@@ -35,6 +36,9 @@ const Layout = () => {
       <main className="pt-16">
         <Outlet />
       </main>
+      {/* Footer */}
+
+      <Footer />
     </div>
   );
 };

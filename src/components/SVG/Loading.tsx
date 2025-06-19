@@ -21,10 +21,8 @@ const Loading = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={500}
-      height={100}
       fill="none"
-      viewBox="492 900 100 180"
+      viewBox="100 900 900 180"
       {...props}
     >
       <rect

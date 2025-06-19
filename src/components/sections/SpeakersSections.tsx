@@ -86,7 +86,7 @@ export function SpeakersSection({ speakers }: { speakers: Speaker[] }) {
           <div ref={title} className="flex items-center z-9 sticky top-20">
             <h1
               ref={title}
-              className="bg-primary px-4 md:px-8 py-3 md:py-5 w-fit text-all-black font-medium "
+              className="bg-primary pl-4  w-fit text-all-black font-medium "
             >
               Some Speakers
             </h1>
@@ -120,7 +120,7 @@ export function SpeakersSection({ speakers }: { speakers: Speaker[] }) {
               key={s.id}
               className={`  
               speakers-card flex w-full
-              ${i % 2 === 0 ? "md:justify-start" : "md:justify-end"}
+              ${i % 2 === 0 ? "lg:justify-start" : "lg:justify-end"}
               justify-center
               `}
             >
