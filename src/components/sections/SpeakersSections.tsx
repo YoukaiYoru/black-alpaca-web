@@ -86,7 +86,11 @@ export function SpeakersSection({ speakers }: { speakers: Speaker[] }) {
           <div ref={title} className="flex items-center z-9 sticky top-20 mb-4 md:mb-0">
             <h1
               ref={title}
+<<<<<<< HEAD
               className="bg-primary px-4 md:px-8 py-3 md:py-5 w-fit text-all-black font-medium"
+=======
+              className="bg-primary pl-4  w-fit text-all-black font-medium "
+>>>>>>> 098caaa3c2256259c1f561c859398db6961e5cbb
             >
               Some Speakers
             </h1>
@@ -110,7 +114,15 @@ export function SpeakersSection({ speakers }: { speakers: Speaker[] }) {
           {speakers.map((s, i) => (
             <div
               key={s.id}
+<<<<<<< HEAD
               className={`speakers-card flex w-full ${i % 2 === 0 ? "md:justify-start" : "md:justify-end"} justify-center`}
+=======
+              className={`  
+              speakers-card flex w-full
+              ${i % 2 === 0 ? "lg:justify-start" : "lg:justify-end"}
+              justify-center
+              `}
+>>>>>>> 098caaa3c2256259c1f561c859398db6961e5cbb
             >
               <SpeakersCard {...s} />
             </div>

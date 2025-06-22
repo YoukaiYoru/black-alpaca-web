@@ -64,11 +64,7 @@ export function HeadingDiv<T extends HTMLElement>({
     <h1
       ref={titleRef}
       className={`
-        ${bgColor} 
-        px-4 py-2 
-        sm:px-6 sm:py-3 
-        md:px-8 md:py-5 
-        mt-16 sm:mt-20 
+        ${bgColor}
         inline-block 
         text-black font-medium 
         sticky top-16 sm:top-20 

@@ -26,7 +26,7 @@ const InfoSection = () => {
     if (allModalsClosed && alpacaRef.current) {
       gsap.set(alpacaRef.current, { y: 0 });
       gsap.to(alpacaRef.current, {
-        y: -210,
+        y: -100,
         duration: 0.5,
         yoyo: true,
         repeat: 1,
@@ -52,7 +52,7 @@ const InfoSection = () => {
     <section ref={sectionRef} onClick={handleAlpacaClick}>
       <div
         id="sky"
-        className="flex flex-col justify-between h-lvh bg-new-blue relative overflow-hidden"
+        className="flex flex-col justify-between h-lvh bg-all-black relative overflow-hidden"
         ref={containerRef}
       >
         <div id="clouds" className="absolute top-0 left-0 w-full h-auto">
@@ -86,6 +86,8 @@ const InfoSection = () => {
             setModalOpen={(isOpen) =>
               setModalOpen("Become a Sponsor", isOpen as boolean)
             }
+            content="Adipisicing eu amet est enim magna proident culpa velit et dolore ullamco. Voluptate minim minim est eiusmod ut cillum commodo aute fugiat eu ad. Dolore id fugiat ut qui amet dolor irure do. Et magna exercitation ad voluptate id quis dolor Lorem ipsum aliqua. Velit cillum consequat deserunt nisi ipsum veniam in. Excepteur aliqua occaecat elit deserunt esse non irure elit elit ullamco laboris aliqua."
+            url="https://example.com/sponsor"
           />
           <BlockComponent
             className="block"
@@ -94,6 +96,8 @@ const InfoSection = () => {
             setModalOpen={(isOpen) =>
               setModalOpen("Submit a Talk", isOpen as boolean)
             }
+            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            url="https://example.com/submit-talk"
           />
           <BlockComponent
             className="block"
@@ -102,6 +106,8 @@ const InfoSection = () => {
             setModalOpen={(isOpen) =>
               setModalOpen("Submit Villages", isOpen as boolean)
             }
+            content="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            url="https://example.com/submit-villages"
           />
           <BlockComponent
             className="block"
@@ -110,6 +116,8 @@ const InfoSection = () => {
             setModalOpen={(isOpen) =>
               setModalOpen("Become a Volunteer", isOpen as boolean)
             }
+            content="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+            url="https://example.com/become-volunteer"
           />
           <BlockComponent
             className="block"
@@ -118,12 +126,14 @@ const InfoSection = () => {
             setModalOpen={(isOpen) =>
               setModalOpen("Get Tickets", isOpen as boolean)
             }
+            content="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+            url="https://example.com/get-tickets"
           />
         </div>
 
         <BlackAlpaca
           ref={alpacaRef}
-          className="w-48 absolute mb-14"
+          className="w-48 absolute mb-14 fill-white"
           style={{
             left: `${cursorX}px`,
             bottom: 0,
@@ -133,7 +143,7 @@ const InfoSection = () => {
 
         <div
           id="ground"
-          className="bg-primary h-16 w-full absolute bottom-0"
+          className="bg-all-black border-t-2 border-dashed h-16 w-full absolute bottom-0"
         ></div>
       </div>
     </section>

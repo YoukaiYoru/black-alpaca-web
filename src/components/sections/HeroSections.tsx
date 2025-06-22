@@ -20,28 +20,29 @@ export function HeroBlocks() {
         stagger: 0.2,
         duration: 1,
         ease: "power3.out",
+        delay: 2,
       });
     },
     { scope: container }
   );
 
   return (
-    <div
-      ref={container}
-      className="flex flex-col transform scale-100 md:scale-100 lg:scale-100"
-    >
-      <div className="block-anim bg-new-blue p-4 overflow-hidden whitespace-nowrap  mr-10">
+    <div ref={container} className="flex flex-col justify-center ">
+      <div className="block-anim bg-new-blue  overflow-hidden whitespace-nowrap  mr-10">
         {/* SVG en background */}
         <div className="">
-          <TitleLogo style={{ width: "100%", height: "100%" }} />
+          <TitleLogo className="size-full" />
+          <p className="text-all-black italic text-end md:text-sm">
+            cybersecurity conference
+          </p>
         </div>
       </div>
 
-      <div className="block-anim bg-new-red px-4 py-2 flex flex-col ml-10">
-        <h2 className="text-white text-lg md:text-3xl leading-none mb-1 text-center md:text-left">
-          18-20.11.2025
+      <div className="block-anim bg-new-red flex flex-col ml-10  md:w-full">
+        <h2 className="text-white text-3xl leading-none md:text-left">
+          XX-XX.11.2025
         </h2>
-        <p className="text-white text-xs md:text-base leading-tight text-center md:text-left">
+        <p className="text-white  md:text-base leading-tight md:text-left">
           Coming Soon
         </p>
       </div>

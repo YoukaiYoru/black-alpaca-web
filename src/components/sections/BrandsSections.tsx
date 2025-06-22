@@ -190,10 +190,11 @@ export function BrandsSection() {
 
   return (
     <section ref={container} className="h-full">
-      <h1 className="col-span-1 sticky bg-new-blue px-4 md:px-8 py-3 md:py-5 mt-20 w-fit h-fit text-all-black font-medium top-20 self-start z-2">
+      <h1 className="col-span-1 sticky bg-new-blue  w-fit pl-10 text-all-black font-medium top-20 self-start z-2">
         <span>Event sponsors</span>
       </h1>
       <ul className="flex justify-evenly items-center h-64">
+<<<<<<< HEAD
         {[...Array(4)].map((_, i) => (
           <li key={i} className="logo-container">
             <div className="logo flex justify-center items-center h-32 w-32">
@@ -201,6 +202,11 @@ export function BrandsSection() {
                 <div key={index}>{Logo}</div>
               )) : null}
             </div>
+=======
+        {[...Array(2)].map((_, i) => (
+          <li key={i}>
+            <SiIntel className="text-8xl" />
+>>>>>>> 098caaa3c2256259c1f561c859398db6961e5cbb
           </li>
         ))}
       </ul>
