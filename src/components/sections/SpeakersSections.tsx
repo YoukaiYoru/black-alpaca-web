@@ -83,46 +83,34 @@ export function SpeakersSection({ speakers }: { speakers: Speaker[] }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Columna izquierda: título y SVG */}
         <div>
-          <div ref={title} className="flex items-center z-9 sticky top-20">
+          <div ref={title} className="flex items-center z-9 sticky top-20 mb-4 md:mb-0">
             <h1
               ref={title}
-              className="bg-primary px-4 md:px-8 py-3 md:py-5 w-fit text-all-black font-medium "
+              className="bg-primary px-4 md:px-8 py-3 md:py-5 w-fit text-all-black font-medium"
             >
               Some Speakers
             </h1>
             {/* Vista móvil */}
-            <WhiteAlpacaSit className="w-18 h-18 ml-4 block md:hidden" />
+            <WhiteAlpacaSit className="w-18 h-18 ml-4 block sticky top-10 md:invisible" />
           </div>
 
           {/* Vista escritorio */}
           {/* SVG Animado */}
-          <div className="sticky top-40 justify-center items-center z-0 hidden md:flex">
+          <div className="sticky top-40 justify-center items-center z-0 invisible md:visible">
             <div className="relative w-full max-w-[90vw] h-full flex justify-center items-center overflow-hidden">
-              <PixelSVG
-                ref={svg}
-                className="absolute top-0 left-0 w-auto h-auto z-2"
-              />
+              <PixelSVG ref={svg} className="absolute top-0 left-0 w-auto h-auto z-2" />
               <WhiteAlpacaStand className="w-full h-full max-w-[90%]" />
             </div>
           </div>
         </div>
 
         {/* Columna derecha: tarjetas */}
-        <aside
-          className="grid grid-cols-1 gap-4 
-              md:p-10 
-              w-full md:max-w-full md:mr-10
-              mx-auto md:mx-auto
-              justify-center"
-        >
+        {/* <aside className="grid grid-cols-1 gap-4 md:p-10 w-full max-w-screen-sm md:max-w-full mx-auto justify-center items-center"> */}
+        <aside className="grid grid-cols-1 gap-4 md:p-10 w-full max-w-screen-sm md:max-w-full md:mr-10 md:mx-auto justify-center items-center">
           {speakers.map((s, i) => (
             <div
               key={s.id}
-              className={`  
-              speakers-card flex w-full
-              ${i % 2 === 0 ? "md:justify-start" : "md:justify-end"}
-              justify-center
-              `}
+              className={`speakers-card flex w-full ${i % 2 === 0 ? "md:justify-start" : "md:justify-end"} justify-center`}
             >
               <SpeakersCard {...s} />
             </div>
@@ -130,5 +118,6 @@ export function SpeakersSection({ speakers }: { speakers: Speaker[] }) {
         </aside>
       </div>
     </section>
+
   );
 }

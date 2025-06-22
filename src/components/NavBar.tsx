@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { useRef, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import TransitionLink from "./TransitionLink";
+import { GoX } from "react-icons/go";
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -119,6 +120,8 @@ export default function NavBar() {
         className="fixed top-0 right-0 w-4/5 max-w-sm h-full bg-new-red shadow-lg transform translate-x-full opacity-0 lg:hidden"
         style={{ zIndex: 50 }}
       >
+        <GoX className="absolute top-4 right-4 w-10 h-10 text-white"
+          onClick={() => safeCloseMenuWithAnimation()}/>
         <div
           ref={menuLinksRef}
           className="flex flex-col items-center justify-center h-full space-y-8 px-6"
